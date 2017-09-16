@@ -44,16 +44,37 @@ function removeBoard(boardName){
     }
     else{
       delete hello[boardName];
-      return `Board ${boardName} was removed.`
+      return `Board ${boardName} was removed.`;
     }
 
 };
 
 
+function displayBoard(boardName){
+  let displayString = ""
+  if(!hello[boardName]){
+    displayString = `Board doesn't exist`;
+  }
+  else{
+    const break_line = "\n|----------------"
+    let currentBoard = hello[boardName];
+    displayString = break_line;
+    for(let property in currentBoard){
+      displayString += "\n| "+ property + break_line;
+      for(let item of currentBoard[property]){
+        displayString += "\n> " + item;
 
+      }
+    }
+
+
+  }
+  return displayString;
+};
 listBoards(hello);
 
 console.log(createBoard('Books'))
 console.log(createBoard('Dreams'))
 console.log(removeBoard('Books'));
 console.log(removeBoard('Airplanes'));
+console.log(displayBoard('Tester Board'));
