@@ -33,7 +33,7 @@ function createBoard(boardName){
 
     }
     else{
-      return "Board already exists."
+      return "Board already exists.";
     }
   };
 
@@ -108,6 +108,66 @@ function createCard(boardName, listName, cardName){
     }
   }
 
+function removeList(boardName, listName){
+  let currentBoard = hello[boardName];
+  if(!currentBoard){
+    return "No such board."
+  }
+  else{
+    if(!currentBoard[listName]){
+      return `${boardName} does not contain a list called ${listName}`;
+    }
+    else{
+      delete currentBoard[listName];
+      return `${listName} deleted.`
+    }
+  }
+
+};
+
+function removeCard(boardName, listName, cardIndex){
+  let currentBoard = hello[boardName];
+  if(!currentBoard){
+    return 'No such board.';
+  }
+  else{
+    if(!currentBoard[listName]){
+      return "No such list.";
+    }
+    else{
+      if(!currentBoard[listName][cardIndex]){
+        return "No such card";
+      }
+      else{
+        let item = currentBoard[listName].splice(cardIndex,1);
+        return `${item} deleted from ${listName}.`;
+      }
+    }
+  }
+}
+
+function moveCard(boardName, fromList, toList, fromCardIndex, toCardIndex){
+  let currentBoard = hello[boardName];
+  if(!currentBoard){
+    return "No such board.";
+  }
+    else{
+      if( !currentBoard[fromList] || !currentBoard[toList]){
+        return "One of more of these lists doesn't exist";
+      }
+      else{
+        if(!currentBoard[fromList][fromCardIndex]){
+          return `There is no item at index ${fromCardIndex}`;
+
+        }
+        else{
+          let item = currentBoard[fromList].splice(fromCardIndex,1);
+          currentBoard[toList].splice(toCardIndex,0, item);
+          return `${item} moved from ${fromList} to ${toList}.`;
+        }
+      }
+    }
+  }
 
 listBoards(hello);
 
@@ -120,4 +180,6 @@ console.log(createList('Dreams', 'Fly'));
 console.log(createList('Dreams', 'Wish List'));
 console.log(createCard('Dreams', 'Wish List', 'Flying'));
 console.log(createCard('Dreams', 'Flying', 'Flying'));
-console.log(createCard('Dreams', 'Wish List', 'Get my baby back'));
+console.log(removeList('Dreams', 'booo'));
+console.log(removeCard('Dreams', 'Wish List', 0));
+console.log(moveCard('Tester Board', 'To Do', 'Doing', 1));
