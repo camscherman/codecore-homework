@@ -24,4 +24,36 @@ function listBoards(obj){
       };
 
 };
+
+// Adds a board to the 'hello' object
+function createBoard(boardName){
+    if(!hello[boardName]){
+      hello[boardName] = {};
+      return `Board ${boardName} was created.`;
+
+    }
+    else{
+      return "Board already exists."
+    }
+  };
+
+// removes a board from the 'hello' object
+function removeBoard(boardName){
+    if(!hello[boardName]){
+      return `Board doesn't exist`;
+    }
+    else{
+      delete hello[boardName];
+      return `Board ${boardName} was removed.`
+    }
+
+};
+
+
+
 listBoards(hello);
+
+console.log(createBoard('Books'))
+console.log(createBoard('Dreams'))
+console.log(removeBoard('Books'));
+console.log(removeBoard('Airplanes'));
