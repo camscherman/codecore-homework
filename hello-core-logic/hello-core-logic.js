@@ -182,4 +182,4 @@ console.log(createCard('Dreams', 'Wish List', 'Flying'));
 console.log(createCard('Dreams', 'Flying', 'Flying'));
 console.log(removeList('Dreams', 'booo'));
 console.log(removeCard('Dreams', 'Wish List', 0));
-console.log(moveCard('Tester Board', 'To Do', 'Doing', 1));
+console.log(moveCard('Tester Board', 'To Do', 'Doing', 1 , 1));
