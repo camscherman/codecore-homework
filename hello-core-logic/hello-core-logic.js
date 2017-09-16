@@ -49,7 +49,7 @@ function removeBoard(boardName){
 
 };
 
-
+// Returns a string that neatly displays all of the items in a given board
 function displayBoard(boardName){
   let displayString = ""
   if(!hello[boardName]){
@@ -71,6 +71,44 @@ function displayBoard(boardName){
   }
   return displayString;
 };
+// Takes arguments 'board name' and 'list name'. It will create a new list inside the stated board, provided it exists.
+function createList(boardName , listName){
+  let currentBoard = hello[boardName];
+  if(!currentBoard){
+    return "Board does not exist";
+  }
+  else{
+    if(!!currentBoard[listName]){
+      return "List name already exists";
+    }
+    else{
+      currentBoard[listName] =[];
+      return `List ${listName} created.`
+    }
+  }
+}
+
+function createCard(boardName, listName, cardName){
+  let currentBoard = hello[boardName];
+  if(!currentBoard){
+    return "Board does not exist";
+  }
+  else{
+    if(!currentBoard[listName]){
+      return "List doesn't exist";
+    }
+    else{
+      currentList = currentBoard[listName];
+
+
+        currentList.push(cardName);
+        return `${cardName} added to ${listName}.`
+
+      }
+    }
+  }
+
+
 listBoards(hello);
 
 console.log(createBoard('Books'))
@@ -78,3 +116,8 @@ console.log(createBoard('Dreams'))
 console.log(removeBoard('Books'));
 console.log(removeBoard('Airplanes'));
 console.log(displayBoard('Tester Board'));
+console.log(createList('Dreams', 'Fly'));
+console.log(createList('Dreams', 'Wish List'));
+console.log(createCard('Dreams', 'Wish List', 'Flying'));
+console.log(createCard('Dreams', 'Flying', 'Flying'));
+console.log(createCard('Dreams', 'Wish List', 'Get my baby back'));
