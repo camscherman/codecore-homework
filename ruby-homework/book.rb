@@ -3,6 +3,7 @@ class Book
         @title = title
         @chapters = []
     end
+    attr_reader :title
 
     def add_chapter(chap_name)
         @chapters << chap_name
@@ -11,7 +12,7 @@ class Book
     def chapters
         count = @chapters.length
         curr_chap =1
-        puts "#{@title} has #{count} chapters."
+        puts "#{title} has #{count} chapters."
         @chapters.each do |chap|
             puts "#{curr_chap}. #{chap}"
             curr_chap += 1
