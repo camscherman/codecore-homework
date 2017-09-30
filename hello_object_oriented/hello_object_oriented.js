@@ -145,13 +145,13 @@ class List{
 
 
 //Test for Task class, addTask, removeTask;
-const toDoList = new List('To Do');
-console.log(toDoList.addTask(new Task('Laundry', 'You')));
-console.log(toDoList.addTask(new Task('Laundry', 'You')));
-console.log(toDoList.addTask(new Task('Laundry', 'You')));
-console.log(toDoList.addTask(new Task('Laundry', 'You')));
-console.log(toDoList.removeTask('Laundry'));
-console.log(toDoList.render());
+// const toDoList = new List('To Do');
+// console.log(toDoList.addTask(new Task('Laundry', 'You')));
+// console.log(toDoList.addTask(new Task('Laundry', 'You')));
+// console.log(toDoList.addTask(new Task('Laundry', 'You')));
+// console.log(toDoList.addTask(new Task('Laundry', 'You')));
+// console.log(toDoList.removeTask('Laundry'));
+// console.log(toDoList.render());
 
 
     // Board
@@ -162,25 +162,7 @@ console.log(toDoList.render());
 // 
         // Here's a more complete usage that involves creating several lists, adding their tasks then adding those lists to a board with heavy use of chaining:
 // 
-    // const toDoList = new List('To Do')
-        // .addTask(new Task('Laundry', 'You'))
-        // .addTask(new Task('Buy Apples'))
-        // .addTask(new Task('Pay Phone Bill', 'Me'));
-// 
-    // const doingList = new List('Doing')
-        // .addTask(new Task('Laundry'))
-        // .addTask(new Task('Study JavaScript', 'Jill'))
-        // .addTask(new Task('Study HTML', 'Jill'))
-        // .addTask(new Task('Study Ruby', 'Me'));
-// 
-    // const doneList = new List('Done')
-        // .addTask(new Task('Laundry'))
-        // .addTask(new Task('Ruby Exercises Homework'));
-// 
-    // const myBoard = new Board('My Board')
-        // .addList(toDoList)
-        // .addList(doingList)
-        // .addList(doneList);
+    
     // Board#removeList
     // It should have a removeList method that takes the name of a List, finds it in list board and removes it.Then, it should return the removed list object or null if it couldn't find a list with that name to remove.
 // 
@@ -266,3 +248,51 @@ console.log(toDoList.render());
 // | 1> Ruby Exercises Homework
 // |
 // */
+
+class Board{
+    
+    constructor (boardName) {
+        this.boardName = boardName;
+        this.lists = [];
+        this.helper = new RenderHelper;
+    }
+
+    addList (listObj) {
+        this.lists.push(listObj);
+        return this;
+    }
+    removeList (listName){
+        let retItem = null;
+        for  (let list of this.lists) {
+            if (list.listName === listName){
+                retItem = list;
+                return retItem;
+            }
+        }
+        return retItem;
+    }
+    render(){
+        let retString = this.helper.title(this.boardName);
+        for (let list of this.lists){
+            retString += list.render();
+        }
+        return retString; 
+    }
+}
+
+
+
+
+
+// Tests 
+ const toDoList = new List('To Do').addTask(new Task('Laundry', 'You')).addTask(new Task('Buy Apples')).addTask(new Task('Pay Phone Bill', 'Me'));
+// 
+     const doingList = new List('Doing').addTask(new Task('Laundry')).addTask(new Task('Study JavaScript', 'Jill')).addTask(new Task('Study HTML', 'Jill')).addTask(new Task('Study Ruby', 'Me'));
+// 
+     const doneList = new List('Done')
+         .addTask(new Task('Laundry'))
+         .addTask(new Task('Ruby Exercises Homework'));
+// 
+     const myBoard = new Board('My Board').addList(toDoList).addList(doingList).addList(doneList);
+
+     console.log(myBoard.render());
