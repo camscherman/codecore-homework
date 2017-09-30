@@ -49,7 +49,7 @@ class Task{
         } else {
             retString += ` • `;
             retString += this.name;
-            retString += "."
+            retString += ".";
             return retString;
         }
     }
@@ -94,22 +94,7 @@ console.log(newTask.render());
 // 
     // returns '|---------\n| To Do\n|---------\n| 0> Laundry • You\n| 1> Buy Apples \n| 2> Pay Phone Bill • Me\n|'
 // 
-    // When the return value above is returned, the `\n` characters are converted to
-    // line breaks which it turn displays as shown below in terminal:
-// 
-    // console.log(toDoList.render());
-// 
-    // /* logs
     // 
-    // |---------
-    // | To Do
-    // |---------
-    // | 0> Laundry • You
-    // | 1> Buy Apples
-    // | 2> Pay Phone Bill • Me
-    // |
-    // 
-    // */
 class List{
 
     constructor(listName){
@@ -123,14 +108,17 @@ class List{
     }
     removeTask(taskName){
         let retItem = null
-        for(let taskObj of this.tasks){
-            if(taskObj.task === taskName){
-                retItem = taskObj;
+        for (let i = 0 ; i < this.tasks.length ; i++){
+            if( this.tasks[i].task === taskName){
+                retItem = this.tasks[i];
+                this.tasks.splice(i, 1);
                 return retItem;
-            } 
+            }
         }
+
         return retItem;
     }
+    
     render(){
         let retString = this.helper.header(this.listName);
         for ( let task of this.tasks ){
@@ -144,14 +132,7 @@ class List{
 }
 
 
-//Test for Task class, addTask, removeTask;
-// const toDoList = new List('To Do');
-// console.log(toDoList.addTask(new Task('Laundry', 'You')));
-// console.log(toDoList.addTask(new Task('Laundry', 'You')));
-// console.log(toDoList.addTask(new Task('Laundry', 'You')));
-// console.log(toDoList.addTask(new Task('Laundry', 'You')));
-// console.log(toDoList.removeTask('Laundry'));
-// console.log(toDoList.render());
+
 
 
     // Board
@@ -263,13 +244,29 @@ class Board{
     }
     removeList (listName){
         let retItem = null;
-        for  (let list of this.lists) {
-            if (list.listName === listName){
-                retItem = list;
+        for( let i = 0; i < this.lists.length ; i++){
+            if(this.lists[i].listName === listName){
+                retItem = this.lists[i];
+                this.lists.splice(i,1);
                 return retItem;
             }
         }
+        
         return retItem;
+    }
+    moveTaskTo(task, fromList, toList){
+        
+        let fromL = this.listGetter(fromList, this.lists);
+        let toL = this.listGetter(toList, this.lists);
+        let taskObj = fromL.removeTask(task);
+        if(fromL === null || toL === null || taskObj === null){
+            return null;
+        }
+        else{
+            toL.addTask(taskObj);
+            return this;
+        }
+
     }
     render(){
         let retString = this.helper.title(this.boardName);
@@ -278,6 +275,21 @@ class Board{
         }
         return retString; 
     }
+    // List getter method is used internally by moveTaskTo to make retrieving lists easier and less
+    // redundant.
+    listGetter(targetItem, holderArr){
+        let holder =null;
+        for ( let item of holderArr){
+            if (item.listName === targetItem){
+                holder = item;
+                return holder;
+            }   
+        }
+        return holder;
+
+    }
+
+    
 }
 
 
@@ -296,3 +308,13 @@ class Board{
      const myBoard = new Board('My Board').addList(toDoList).addList(doingList).addList(doneList);
 
      console.log(myBoard.render());
+
+    myBoard.moveTaskTo('Laundry', 'To Do', 'Doing');
+     myBoard.moveTaskTo('Buy Apples', 'To Do', 'Doing');
+
+     console.log(myBoard.render());
+
+ // Test Remove List
+ 
+ myBoard.removeList('To Do');
+ console.log(myBoard.render());
