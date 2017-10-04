@@ -22,10 +22,14 @@ class RenderHelper{
     header(headerString){
         return `|----------\n| ${headerString} \n|----------\n`
     }
-    listEnumerate(listItem){
+    listEnumerate(listItems){
+        let curr_string =""
         
-        let curr_string = `| ${this.index}> ${listItem}\n`
-        this.index +=1;
+        for( let [index, value] of Object.entries(listItems)){
+             curr_string += `| ${index}> ${value.render()}\n`
+
+        }
+        
         return curr_string;
     }
     listIndexReset(){
@@ -42,17 +46,13 @@ class Task{
         this.name= name;
     }
     render() {
-        let retString = this.task;
-        if(!this.name){
-            retString += '.';
-            return retString;
+        if (!this.name) {
+            return `${this.task}.`;
         } else {
-            retString += ` • `;
-            retString += this.name;
-            retString += ".";
-            return retString;
+            return `${this.task} • ${this.name}.`;
         }
     }
+    
 }
 
 // test
@@ -100,10 +100,10 @@ class List{
     constructor(listName){
         this.listName = listName;
         this.tasks =[];
-        this.helper = new RenderHelper;
+        this.helper = new RenderHelper();
         }
-    addTask(NewTask){
-        this.tasks.push(NewTask);
+    addTask(newTask){
+        this.tasks.push(newTask);
         return this;
     }
     removeTask(taskName){
@@ -121,10 +121,10 @@ class List{
     
     render(){
         let retString = this.helper.header(this.listName);
-        for ( let task of this.tasks ){
-            retString += this.helper.listEnumerate(task.render());
-        }
-        retString += this.helper.listIndexReset();
+        
+            retString += this.helper.listEnumerate(this.tasks);
+        
+        
         return retString;
 
     }
