@@ -1,0 +1,24 @@
+.heading-line{
+  display: flex;
+  flex-direction: row;
+
+
+}
+form{
+  margin-left: 10px;
+  margin-right:20px;
+}
+
+.card-img{
+  width: 60px;
+  height: 60px;
+  background-image: url('../images/shark.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60px;
+  border-radius: 100%;
+}
+.card-text{
+  padding:20px;
+  font-size: 20px;
+}

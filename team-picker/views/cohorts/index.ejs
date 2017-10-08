@@ -1,3 +1,23 @@
 <%- include('../partials/header') %>
-        index
+<div class="col-sm-8">
+<div class="card">
+  <div class= "header-line">
+
+    <div class="card-img" style ="background-image:url('<%= photo_url %>')" >
+  </div>
+  <div class="card-header">
+    <strong><%= name %></strong>
+  </div>
+</div>
+  <div class="card-body">
+    <p class="card-text">
+      <%= members %>
+    </p>
+    <a class="btn btn-primary" href='/show/<%= id %>'>Show Team</a>
+  </div>
+</div>
+</div>
+
+
+
     <%- include('../partials/footer') %>
