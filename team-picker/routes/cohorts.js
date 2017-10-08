@@ -1,10 +1,10 @@
 const Express= require('express')
-const kx = require('./db/connection')
+//const kx = require('./db/connection')
 const router = Express.Router()
 const path= require('path')
 
 router.get('/', (req,res)=>{
-    res.send('cohorts');
+    res.render('index');
 
 })
 

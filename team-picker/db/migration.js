@@ -5,4 +5,4 @@ kx.schema.createTable('cohorts', table =>{
     table.string('name')
     table.string('logo_url')
     table.text('members')
-}).then(()=> process.exit()).catch(()=> process.exit())
+}).then(()=> process.exit(console.log)).catch(()=> process.exit(console.log))

@@ -20,3 +20,8 @@ const cohorts = require('./routes/cohorts.js')
 app.use('/cohorts', cohorts)
 app.use('/', cohorts)
 
+PORT = 4545
+
+app.listen(PORT, () =>{
+  console.log("Listening on http://localhost:4545.... peace out!")
+})
