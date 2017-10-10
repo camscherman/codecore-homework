@@ -88,5 +88,8 @@ typings/
 # dotenv environment variables file
 .env
 
+#images in team-picker public
+
+./team-picker/public/images
 
 # End of https://www.gitignore.io/api/node,macos
