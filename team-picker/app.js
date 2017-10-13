@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 const cohorts = require('./routes/cohorts.js')
 
-
+app.get('/', (req, res)=>{
+  res.redirect('/cohorts')
+})
 
  app.use('/cohorts', cohorts)
 // app.use('/', cohorts)

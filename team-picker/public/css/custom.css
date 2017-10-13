@@ -10,8 +10,8 @@ form{
 }
 
 .card-img{
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   padding-left:15px;
   padding-top:5px;
   margin-left: 10px;
@@ -34,4 +34,8 @@ form{
 ol > .card{
   margin: 10px 1px 10px 1px;
   background-color: rgba(0,0,0,0.05)
+}
+
+.header-line > .row {
+  margin-left: 20px;
 }

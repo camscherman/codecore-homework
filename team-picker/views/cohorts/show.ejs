@@ -3,17 +3,17 @@
 <div class="card">
 
   <div class="card-header">
-    <strong><%= cohort.name %></strong>
+    <strong><%= curr_cohort.returnName() %></strong>
   </div>
 
   <div class="card-body">
     <p class="card-text">
-      <%= cohort.members %>
+      <%= curr_cohort.returnMembers() %>
     </p>
 
   </div>
   <div class='card-body'>
-    <form action='/cohorts/<%= cohort.id %>'>
+    <form action='/cohorts/<%= curr_cohort.id %>'>
       <div class="form-check">
   <label class="form-check-label">
     <input class="form-check-input" type="radio" name="selection" value="team_count" checked>
@@ -33,16 +33,17 @@
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 
-    </form>
+    
   </div>
-</div>
-<% if(!!teams){ %> 
-  
-  <ol>
-    <% for(let item of teams){%>
-      <div class="card">
-        <li><%= item.join(", ") %></li>
-      </div>
+
+<% if(curr_cohort.hasTeams()){ %> 
+  <ul class='list-group'>
+    <% let teams = curr_cohort.returnTeams() %>
+    <% for(let index in teams){%>
+     
+      
+        <li class="list-group-item"><strong><%= index %> ) </strong><%= teams[index] %></li>
+      
       <%}%>
       
       <% }%>
