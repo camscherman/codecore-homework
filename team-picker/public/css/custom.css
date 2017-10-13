@@ -10,15 +10,28 @@ form{
 }
 
 .card-img{
-  width: 60px;
-  height: 60px;
-  background-image: url('../images/shark.png');
+  width: 70px;
+  height: 70px;
+  padding-left:15px;
+  padding-top:5px;
+  margin-left: 10px;
+  
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 60px;
+  background-size: 80px;
   border-radius: 100%;
 }
 .card-text{
   padding:20px;
   font-size: 20px;
+}
+
+.header-line{
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+ol > .card{
+  margin: 10px 1px 10px 1px;
+  background-color: rgba(0,0,0,0.05)
 }

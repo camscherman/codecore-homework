@@ -1,10 +1,10 @@
 const kx = require("knex")({
-    client:'sqlite3',
+    client:'pg',
     connection: {
 
-        database: "./teamPicker.sqlite"
-    },
-    useNullAsDefault: true
+        database: "team_picker"
+    }
+    
 
 })
 

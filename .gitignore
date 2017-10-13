@@ -93,3 +93,4 @@ typings/
 ./team-picker/public/images
 
 # End of https://www.gitignore.io/api/node,macos
+./team-picker/public/uploads

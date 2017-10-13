@@ -18,8 +18,8 @@ const cohorts = require('./routes/cohorts.js')
 
 
 
-app.use('/cohorts', cohorts)
-app.use('/', cohorts)
+ app.use('/cohorts', cohorts)
+// app.use('/', cohorts)
 
 PORT = 4545
 
