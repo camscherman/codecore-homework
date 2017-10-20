@@ -1,3 +1,73 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul{
+    list-style: none;
+}
+.sidebar{
+    line-height: 25px;
+}
+#featured > .card-text{
+    overflow: hidden;
+    max-height: 30vh;
+}
+
+.card{
+    
+    height: 50vh;
+    border: solid 5px rgba(0,0,0,0.3);
+    border-radius: 5%;
+    padding:10px;
+    margin: 10px 5px 10px 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+
+p{
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    line-height: 2rem;
+    padding-bottom: 80px;
+}
+#featured{
+   height:auto;
+   margin-left:30px;
+   padding: 15px;
+}
+
+.card > img{
+    max-height: 50%;
+    width: auto;
+    align-content: center;
+}
+
+.jumbotron{
+    padding-top: 10px;
+}
+
+form{
+    font-size:18px;
+}
+
+input, select,textarea, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 12px;
+  
+}
+textarea{
+    height:80vh;
+}
+
+#head-image{
+    background-image: url('./scene.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    height:50vh;
+
+}
+

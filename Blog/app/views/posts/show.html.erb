@@ -1,3 +1,17 @@
+<div class="jumbotron" id ="head-image"></div>
+<div class= "row">
+<div class="col-md-2"><div class='d-flex'><%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-outline-dark ml-auto'%></div></div>
+<div class= "col-md-8">
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
-<%= link_to "Edit Post", edit_post_path(@post)%> <%= link_to "Delete post", post_path(@post), method: :delete%>
+    
+<div class="d-flex"><div class="mr-auto">Post Category</div><div class='ml-auto'>Created: <%= time_ago_in_words( @post.formatted_time) %> ago</div>
+</div>
+</div>
+<div class="col-md-2"><%= link_to "Delete post", post_path(@post), method: :delete, data:{confirm: "Are you sure?"}, class: 'btn btn-outline-dark'%></div>
+<div class='col-md-12'>
+<div class='footer'>    
+
+</div>
+</div>
+</div>
