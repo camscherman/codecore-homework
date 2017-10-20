@@ -12,6 +12,16 @@ ul{
     max-height: 30vh;
 }
 
+@media(max-width: 768px){
+    #favorites{
+        visibility: hidden;
+        width:0px;
+        height:0px;
+    }
+
+}
+
+
 .card{
     
     height: 50vh;
