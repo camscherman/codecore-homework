@@ -1,0 +1,37 @@
+
+<div class="jumbotron">
+  <div class= 'row'>
+    <div class="col-md-8"  >
+        
+        <div class="card" id = "featured">
+        <%= image_tag('scene.jpg') %>
+        <h4>
+        <%= link_to  @posts.first.title, post_path(@posts.first) %>
+        </h4>
+        <p class= 'card-text'><%= @posts.first.body %></p>
+        </div>
+    </div>
+    
+    <div class="col-md-4 hidden-sm-down" id = "favorites" >
+        <div class="card">
+        </div>
+    </div>
+</div>
+</div>
+<div class="container">
+<div class="row ">
+<% @posts.each do |p| %>
+<% unless(p == @posts.first) %>
+<div class='col-md-4 col-sm-12'>
+<div class= 'card'>
+<%= image_tag('scene.jpg') %>
+<h4>
+<%= link_to  p.title, post_path(p) %>
+</h4>
+<p class= 'card-text'><%= p.body %></p>
+</div>
+</div>
+<% end %>
+<% end %>
+</div>
+</div>
