@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-3 col-sm-0"></div>
+  <div class="col-md-6 col-sm-12">
+    <h1>Sign Up</h1>
+    <% if @user.errors.present? %>
+    <%= @user.errors.full_messages.join(", ") %>
+    <% end %>
+    <%= form_for @user do |f| %>
+    <div class='form-group'>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <%= f.submit class:"btn-outline-dark" %>
+    <% end %>
+  </div>
+</div>

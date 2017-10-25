@@ -11,5 +11,12 @@ Rails.application.routes.draw do
   delete('/posts/:id', {to: 'posts#destroy'})
   root('posts#index')
 
+  resources :users, only:[:new,:create, :edit, :update]
+
+  resource :session, only:[:new, :create, :destroy]
+
+  get('/users/password/:id', {to: 'users#edit_password', as: :edit_user_password})
+  post('/users/password/:id', {to: 'users#update_password', as: :user_password})
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

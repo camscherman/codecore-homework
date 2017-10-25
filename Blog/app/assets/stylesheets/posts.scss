@@ -23,14 +23,14 @@ ul{
 
 
 .card{
-    
+
     height: 50vh;
     border: solid 5px rgba(0,0,0,0.3);
     border-radius: 5%;
     padding:10px;
     margin: 10px 5px 10px 5px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: scroll;
 
 }
 
@@ -65,7 +65,7 @@ input, select,textarea, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   font-size: 12px;
-  
+
 }
 textarea{
     height:80vh;
@@ -80,4 +80,3 @@ textarea{
     height:50vh;
 
 }
-
