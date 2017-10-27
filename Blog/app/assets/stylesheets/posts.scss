@@ -30,7 +30,8 @@ ul{
     padding:10px;
     margin: 10px 5px 10px 5px;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: hidden;
+
 
 }
 
@@ -79,4 +80,37 @@ textarea{
 
     height:50vh;
 
+}
+
+#comments form textarea{
+  height: 200px;
+}
+ .short{
+  max-height: 20vh;
+}
+
+#footer{
+  margin-top: 50px;
+  font-size:11px;
+  font-color:black;
+  padding-left:  0px;
+  padding-right:0px;
+  margin-left: 0px;
+  margin-right:0px;
+
+}
+#footer ul{
+  display:flex;
+  flex-direction: column;
+
+}
+
+#footer li a{
+
+  color:black;
+  text-decoration: none;
+}
+.form-page{
+  margin-top: 80px;
+  min-height: 65vh;
 }

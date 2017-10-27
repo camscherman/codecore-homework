@@ -1,0 +1,43 @@
+<div class= 'container' id ="footer">
+<div class= "row">
+  <div class= "mr-auto">
+    <ul>
+      <li>
+        <%= link_to "Home ", root_path %>
+      </li>
+      <li>
+        <%= link_to "Posts ", posts_path %>
+      </li>
+        <li>Copyright 2017 B-log</li>
+
+      </li>
+    </ul>
+  </div>
+    <div class="ml-auto">
+    <ul>
+
+      <% if !user_signed_in? %>
+      <li>
+        <%= link_to "Sign Up ", new_user_path %>
+      </li>
+      <li>
+        <%= link_to "Sign In ", new_session_path %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Sign Out ", user_path(current_user), method: :delete %>
+      </li>
+      <li>
+        <%= link_to "Edit Your Details ", edit_user_path(current_user) %>
+      </li>
+      <% end %>
+
+
+
+    </ul>
+  </div>
+
+
+</div>
+
+</div>

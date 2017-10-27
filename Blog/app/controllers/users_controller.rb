@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only:[:edit, :update,:edit_password]
+  before_action :authenticate_user!, except: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -18,9 +20,19 @@ class UsersController < ApplicationController
 
 
   def edit
+    puts @user.id
+    puts current_user
+    unless @user.id == current_user.id
+      flash[:alert] = "Access denied"
+      redirect_to root_path
+    end
   end
 
   def edit_password
+    unless @user.id == current_user.id
+      flash[:alert] = "Access denied"
+      redirect_to root_path
+    end
   end
 
   def update_password
@@ -28,7 +40,7 @@ class UsersController < ApplicationController
     if(password_params[:new_password] == password_params[:current_password])
       flash.now[:alert] = "You must choose a new password"
       render :edit_password
-    
+
 
     elsif(password_params[:new_password] == password_params[:confirm_password] && @user.authenticate(password_params[:current_password]))
       @user.update(password: password_params[:new_password])
@@ -60,5 +72,9 @@ end
 def find_user
   @user = User.find(params[:id])
 end
+
+
+
+
 
 end

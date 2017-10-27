@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   resource :session, only:[:new, :create, :destroy]
 
+  resources :posts do
+    resources :comments, shallow: true,  only:[:create, :destroy]
+  end
+
   get('/users/password/:id', {to: 'users#edit_password', as: :edit_user_password})
   post('/users/password/:id', {to: 'users#update_password', as: :user_password})
 
