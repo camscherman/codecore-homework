@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :find_post, only: [:create]
   before_action :find_comment, only: [:destroy]
-  before_action :authenticate_user!,
+  before_action :authenticate_user!
+  before_action :authorize_user!, only: [:destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -31,5 +32,13 @@ class CommentsController < ApplicationController
 
   def find_comment
     @comment= Comment.find(params[:id])
+  end
+
+  def authorize_user!
+
+    unless (can?(:manage, @comment) || can?(:manage, @comment.post))
+      flash[:alert] = "Access denied"
+      redirect_to root_path
+    end
   end
 end

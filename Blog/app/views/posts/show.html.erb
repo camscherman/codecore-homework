@@ -2,9 +2,11 @@
 <div class= "row">
     <div class="col-md-2"></div>
     <div class= "col-md-8">
+      <% if can?(:manage, @post) %>
         <div class='d-flex'>
             <%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-outline-dark mr-auto'%><%= link_to "Delete post", post_path(@post), method: :delete, data:{confirm: "Are you sure?"}, class: 'btn btn-outline-dark'%>
         </div>
+        <% end %>
         <h1><%= @post.title %></h1>
         <p><%= @post.body %></p>
 
@@ -27,18 +29,20 @@
     </div>
 </div>
 <div class ="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-6">
+  <div class="col-md-3"></div>
+  <div class="col-md-8">
     <
     <% @comments.each do |c| %>
       <div class="card short">
         <div class="card-body">
           <%= c.body %>
         </div>
+        <% if (can?(:manage, c) || can?(:manage,@post)) %>
         <div class='card-footer'>
           <%= c.user.first_name %>
           <%= link_to "Delete", comment_path(c), method: :delete %>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>
