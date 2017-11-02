@@ -23,14 +23,15 @@ ul{
 
 
 .card{
-    
+
     height: 50vh;
     border: solid 5px rgba(0,0,0,0.3);
     border-radius: 5%;
     padding:10px;
     margin: 10px 5px 10px 5px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: hidden;
+
 
 }
 
@@ -65,7 +66,7 @@ input, select,textarea, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   font-size: 12px;
-  
+
 }
 textarea{
     height:80vh;
@@ -81,3 +82,35 @@ textarea{
 
 }
 
+#comments form textarea{
+  height: 200px;
+}
+ .short{
+  max-height: 30vh;
+}
+
+#footer{
+  margin-top: 50px;
+  font-size:11px;
+  font-color:black;
+  padding-left:  0px;
+  padding-right:0px;
+  margin-left: 0px;
+  margin-right:0px;
+
+}
+#footer ul{
+  display:flex;
+  flex-direction: column;
+
+}
+
+#footer li a{
+
+  color:black;
+  text-decoration: none;
+}
+.form-page{
+  margin-top: 80px;
+  min-height: 65vh;
+}

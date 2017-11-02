@@ -2,13 +2,48 @@
 <div class= "row">
     <div class="col-md-2"></div>
     <div class= "col-md-8">
+      <% if can?(:manage, @post) %>
         <div class='d-flex'>
             <%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-outline-dark mr-auto'%><%= link_to "Delete post", post_path(@post), method: :delete, data:{confirm: "Are you sure?"}, class: 'btn btn-outline-dark'%>
         </div>
+        <% end %>
         <h1><%= @post.title %></h1>
         <p><%= @post.body %></p>
-    
+
         <div class="d-flex"><div class="mr-auto">Post Category</div><div class='ml-auto'>Created: <%= time_ago_in_words( @post.formatted_time) %> ago</div>
         </div>
     </div>
+</div>
+
+<div class= "row">
+    <div class= "col-md-1 col-sm-0"></div>
+    <div class= "col-md-8 col-sm-12" id ="comments">
+        <%= form_for [@post, @comment] do |f| %>
+          <div class = "form-group">
+            <%= f.label "Comment Body" %>
+            <%= f.text_area :body, cols:"10", rows:"10" %>
+          </div>
+            <%= f.submit class: 'btn-outline-dark' %>
+        <% end %>
+
+    </div>
+</div>
+<div class ="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-8">
+    <
+    <% @comments.each do |c| %>
+      <div class="card short">
+        <div class="card-body">
+          <%= c.body %>
+        </div>
+        <% if (can?(:manage, c) || can?(:manage,@post)) %>
+        <div class='card-footer'>
+          <%= c.user.first_name %>
+          <%= link_to "Delete", comment_path(c), method: :delete %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
