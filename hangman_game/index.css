@@ -18,6 +18,10 @@
     
 }
 
+.red{
+    background-color: red;
+}
+
 .board{
     height: 100px;
     width: 1200px;   
@@ -40,23 +44,25 @@
 }
 
 #message{
-    height: 200px;
-    width: 500px;
+    height: 300px;
+    width: 600px;
     background-color: lightskyblue;
     margin: 20px 50px 50px 50px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: helvetica;
     align-content: center;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 .imageDiv{
-    height: 500px;
+    height: 650px;
     width: 500px;
     margin: 20px 50px 50px 50px;
 }
 
 .holderDiv{
-    width:1000px;
+    width:1200px;
     height: 600px;
     display: flex;
     flex-direction: row;
