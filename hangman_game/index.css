@@ -1,0 +1,70 @@
+#letterholder{
+    width:800px;
+    height: 190px;
+    background-color: lightgray;
+    margin: 100px 50px 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.letterbox{
+    font-size: 45px;
+    width: 50px;
+    border: solid 5px black;
+    display: block;
+    
+}
+
+.red{
+    background-color: red;
+}
+
+.board{
+    height: 100px;
+    width: 1200px;   
+    margin: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
+
+.board-letter{
+    border-bottom: 5px solid red;
+    width: 70px;
+    height:70px;
+    margin: 5px;
+    font-size: 60px;
+    align-content: center;
+    font-family: helvetica;
+}
+
+#message{
+    height: 300px;
+    width: 600px;
+    background-color: lightskyblue;
+    margin: 20px 50px 50px 50px;
+    font-size: 25px;
+    font-family: helvetica;
+    align-content: center;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.imageDiv{
+    height: 650px;
+    width: 500px;
+    margin: 20px 50px 50px 50px;
+}
+
+.holderDiv{
+    width:1200px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+
+}
